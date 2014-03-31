@@ -9,7 +9,7 @@ package jeu;
 public class LancementJeu{
 
     public static void main(String args[]){
-        new jeu.MenuJeu("Tout le monde veut prendre sa place.");
+        new jeu.MenuJeu("QUIZZ !!");
     }
 
 }

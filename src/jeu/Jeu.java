@@ -193,6 +193,15 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
 
 
         /**
+         * Affichage de la question :
+         */
+        JLabel question = new JLabel(("Question ici :"));
+        question.setFont(fontgrand);
+        question.setBounds(650,0,800,600);
+        this.add(question);
+
+
+        /**
          * Affichage du niveau
          */
         labelniveau=new JLabel("Niveau  : "+niveau.getNiveau());
@@ -336,7 +345,8 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
             carre();
         } else if (ae.getActionCommand().equals("Hexa")) {
             hexa();
-        } else {
+        } else if(ae.getActionCommand().equals("Réponse 1") || ae.getActionCommand().equals("Réponse 2") || ae.getActionCommand().equals("Réponse 3") ||
+                ae.getActionCommand().equals("Réponse 4") || ae.getActionCommand().equals("Réponse 5") || ae.getActionCommand().equals("Réponse 6")) {
             restart();
         }
     }
@@ -352,6 +362,9 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         this.add(duo);
         this.add(carre);
         this.add(hexa);
+
+        this.revalidate();
+        this.repaint();
 
     }
 

@@ -1,4 +1,4 @@
-package jeu;
+    package jeu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -65,9 +65,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
     private JButton bouton5=new JButton();
     private JButton bouton6=new JButton();
 
-
-
-
     private BoutonChoix bouton1l;
     private BoutonChoix bouton2l;
     private BoutonChoix bouton3l;
@@ -83,8 +80,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
     private BoutonChoix duo;
     private BoutonChoix carre;
     private BoutonChoix hexa;
-
-
 
     // le bouton pour la question
     // est une variable d'instance car il doit �tre accessible
@@ -115,8 +110,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
     protected  String wavAide() {
         return "../ressources/sons/glados/reglesa.wav";
     }
-
-
 
     // d�finition de la m�thode abstraite "init()"
     // initialise le frame
@@ -156,11 +149,9 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         bouton2l=new BoutonChoix("Réponse 2");
         bouton3l=new BoutonChoix("Réponse 3");
 
-
         duo = new BoutonChoix("Duo");
         carre = new BoutonChoix("Carré");
         hexa = new BoutonChoix("Hexa");
-
 
         answer1 = new BoutonChoix("Réponse 1");
         answer2 = new BoutonChoix("Réponse 2");
@@ -168,9 +159,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         answer4 = new BoutonChoix("Réponse 4");
         answer5 = new BoutonChoix("Réponse 5");
         answer6 = new BoutonChoix("Réponse 6");
-
-
-
 
         // LECTURE DU SON
         BoutonPlay jouerSon=new BoutonPlay("");
@@ -191,7 +179,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         instruction.setBounds(150,330,1000,400);
         add(instruction);
 
-
         /**
          * Affichage de la question :
          */
@@ -199,7 +186,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         question.setFont(fontgrand);
         question.setBounds(650,0,800,600);
         this.add(question);
-
 
         /**
          * Affichage du niveau
@@ -209,7 +195,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         labelniveau.setBounds(1150,600,500,400);
         add(labelniveau);
 
-
         /**
          * Affichage des points
          */
@@ -217,7 +202,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         labelpoints.setFont(fontpetit);
         labelpoints.setBounds(1150,410,500,400);
         add(labelpoints);
-
 
         /**
          * Bouton de choix ( duo / hexa .. )
@@ -235,7 +219,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         hexa.addActionListener(this);
     }
 
-
     /**
      * This method create the two button for the duo mode.
      */
@@ -250,7 +233,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         add(answer1);
         answer1.addActionListener(this);
 
-
         // BOUTON CHOIX 2
         answer2.setBounds(683,593,275,200);
         add(answer2);
@@ -258,7 +240,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
 
         this.revalidate();
         this.repaint();
-
     }
 
 
@@ -272,7 +253,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         answer1.setBounds(275, 555, 275, 120);
         this.add(answer1);
         bouton1l.addActionListener(this);
-
 
         // BOUTON CHOIX 2
         answer2.setBounds(275, 693, 275, 120);
@@ -289,7 +269,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         add(answer4);
         answer4.addActionListener(this);
 
-
         this.revalidate();
         this.repaint();
     }
@@ -305,7 +284,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         answer1.setBounds(175, 555, 275, 120);
         this.add(answer1);
         bouton1l.addActionListener(this);
-
 
         // BOUTON CHOIX 2
         answer2.setBounds(175, 693, 275, 120);
@@ -351,6 +329,9 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
         }
     }
 
+    /**
+     * This method remove all the answer and add the button duo / carre / hexa :
+     */
     private void restart() {
         this.remove(answer1);
         this.remove(answer2);
@@ -365,7 +346,6 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
 
         this.revalidate();
         this.repaint();
-
     }
 
 
@@ -701,7 +681,7 @@ public class Jeu extends FenetreAbstraite implements ActionListener,KeyListener{
             }
         }
     }
-    //TODO
+
     // Permet de mettre un timer
     //mettreTimer(2000);
     //permet d'ouvrir une nouvelle fenetre

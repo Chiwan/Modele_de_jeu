@@ -15,6 +15,8 @@ public class GestionQuestion {
 	
 	public GestionQuestion(){		
 		listeQuestion=new ArrayList<Question>();
+		//Initialise les questions
+		listerRepertoire();
 	}
 	
 	/**
@@ -37,7 +39,7 @@ public class GestionQuestion {
 	/**
 	 * Lis tous les fichiers qui sont dans le dossier question
 	 */
-	public void listerRepertoire(){
+	private void listerRepertoire(){
 		String path = "ressources\\question";
 		File repertoire= new File(path);
 		File[] listeFichier;
@@ -62,11 +64,27 @@ public class GestionQuestion {
 	public ArrayList<Question> getListeQuestion(){
 		return listeQuestion;
 	}
+	
+	public Question getAleaObjectQuestion(){
+		int nbAlea = randomizer.nextInt(listeQuestion.size());
+		return listeQuestion.get(nbAlea);
+		
+	}
+	
+	public String getQuestion(){
+		return getAleaObjectQuestion().afficherQuestion();
+	}
 	 public static void main(String args[]){
 	        GestionQuestion question = new GestionQuestion();	        
-	        question.listerRepertoire();
-	        System.out.println(question.getListeQuestion().get(0).afficherQuestion());
-	        System.out.println(question.getListeQuestion().get(0).afficherBonneReponse());
+	    
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
+	        System.out.println(question.getQuestion());
 	        
 
 	 }

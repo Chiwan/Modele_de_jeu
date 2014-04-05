@@ -26,6 +26,20 @@ public class Question {
 	}
 	
 	/**
+	 * Return true si c'est la bonne réponse
+	 * @param reponse
+	 * @return
+	 */
+	public boolean bonneReponse(String reponse){
+		if(reponse.compareTo(questionReponse[1])==0){
+			return true;
+		}
+		return false;
+	}
+	
+
+	
+	/**
 	 * la question se trouve à la premiere ligne du fichier .txt
 	 * @return
 	 */
@@ -41,6 +55,30 @@ public class Question {
 		return questionReponse;
 	}
 	
+	public String[] duo(){
+		String[] reponse = new String[2];
+		for(int i=1 ; i<3;i++){
+			reponse[i-1]=i+ " "+questionReponse[i];
+		}
+		return reponse;
+		
+	}
+	public String[] carre(){
+		String[] reponse = new String[4];
+		for(int i=1 ; i<5;i++){
+			reponse[i-1]=i+" "+questionReponse[i];
+		}
+		return reponse;
+		
+	}
+	public String[] hexa(){
+		String[] reponse = new String[8];
+		for(int i=1 ; i<9;i++){
+			reponse[i-1]=i+" "+questionReponse[i];
+		}
+		return reponse;
+		
+	}
 	/**
 	 * Permet de rentrer les valeurs dans le tableau de String
 	 * @param i

@@ -7,6 +7,8 @@ import java.io . * ;
 
 public class GestionQuestion {
 	
+	//Permet de récupérer la question choisi
+	private int rdm= 0;
 	//Permet de choisir une question aléatoirement
 	private Random randomizer = new Random();
 	
@@ -65,27 +67,77 @@ public class GestionQuestion {
 		return listeQuestion;
 	}
 	
-	public Question getAleaObjectQuestion(){
-		int nbAlea = randomizer.nextInt(listeQuestion.size());
-		return listeQuestion.get(nbAlea);
+	/**
+	 * Recupere l'objet question
+	 * @param rdm
+	 * @return
+	 */
+	public Question getAleaObjectQuestion(int rdm){		
+		return listeQuestion.get(rdm);
 		
 	}
+
+	/**
+	 * Revnoie un nombre aleatoire
+	 * @return
+	 */
+	public int getRdmNumber(){
+		rdm = randomizer.nextInt(listeQuestion.size());
+		return rdm;
+	}
+	public int getRdm(){
+		return rdm;
+	}
 	
+	/**
+	 * Renvoie une question choisi aleatoirement
+	 * @return
+	 */
 	public String getQuestion(){
-		return getAleaObjectQuestion().afficherQuestion();
+		return getAleaObjectQuestion(rdm).afficherQuestion();
 	}
 	 public static void main(String args[]){
 	        GestionQuestion question = new GestionQuestion();	        
-	    
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
-	        System.out.println(question.getQuestion());
+	        String[] tab;
+	        int alea = question.getRdmNumber();
 	        
+	        
+	        Scanner sc = new Scanner(System.in);
+	        
+	        
+	        System.out.println(question.getQuestion());
+	        System.out.println("Duo Carre Hexa");
+	        String str = sc.nextLine();
+//	        while(str.equals("Duo") || str.compareTo("Carre")!=0 || str.compareTo("Hexa")!=0){
+//	        	str = sc.nextLine();
+//	        	System.out.println("Vous avez tapé :" + str);
+//	        	System.out.println("Duo Carre Hexa");
+//	        }
+	        
+	        if(str.compareTo("Duo")==0){
+	        	System.out.println(question.getQuestion());
+	        	tab=question.getAleaObjectQuestion(alea).duo();
+	        	
+	        }else if(str.compareTo("Carre")==0){
+	        	System.out.println(question.getQuestion());
+	        	tab=question.getAleaObjectQuestion(alea).carre();
+	        }else{
+	        	System.out.println(question.getQuestion());
+	        	tab=question.getAleaObjectQuestion(alea).hexa();
+	        }
+	        for(int i=0; i<tab.length;i++){
+	        	System.out.println(tab[i]);
+	        }
+	        int nb = sc.nextInt();
+	        String[] tabReponse;
+	        tabReponse = question.getAleaObjectQuestion(alea).getQuestionReponse();
+	        
+	        if(question.getAleaObjectQuestion(alea).bonneReponse(tabReponse[nb])){
+	        	System.out.println("Bravo !");
+	        }
+	        else{
+	        	System.out.println("Faux !");
+	        }
 
 	 }
 }
